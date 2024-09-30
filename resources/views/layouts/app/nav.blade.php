@@ -1,119 +1,100 @@
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="{{ route('home') }}">
-            <span class="align-middle">AdminKit</span>
+            <img style="width: 150px; margin: auto 30px;" src="{{ asset('img/mintur-logo2.png') }}">
+            <span class="align-middle">Sistema de Asignación de Bienes Nacionales</span>
         </a>
         <ul class="sidebar-nav">
-            <li class="sidebar-header">
-                Pages
-            </li>
+
             <li class="sidebar-item active">
-                <a class="sidebar-link" href="#">
+                <a class="sidebar-link" href="/">
                     <i class="fa fa-house"></i>
-                    <span class="align-middle">Dashboards</span>
+                    <span class="align-middle"><strong >Menú Principal</strong></span>
                 </a>
             </li>
-            <li class="sidebar-item">
-                <a data-bs-target="#analytics" data-bs-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
+
+            <li class="sidebar-item active">
+                <a class="sidebar-link" href="{{url('/mantenimiento')}}">
+                    <i class="fa fa-car"></i>
+                    <span class="align-middle"><strong >Mantenimiento de Vehiculos</strong></span>
+                </a>
+            </li>
+
+            <li class="sidebar-item active">
+                <a class="sidebar-link" href="{{url('/mantenimientoTec')}}">
+                <i class="fa-solid fa-laptop text-white" ></i>
+                    <span class="align-middle"><strong >Mantenimiento de Equipos Tecnologicos</strong></span>
+                </a>
+            </li>
+
+            <li class="sidebar-item active">
+                <a class="sidebar-link" href="{{url('/bienes')}}">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span class="align-middle"><strong>Inventario</strong></span>
+                </a>
+            </li>
+
+            <li class="sidebar-item active">
+                <a data-bs-target="#tablas" data-bs-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
                     <i class="fa-solid fa-chart-simple"></i>
-                    <span class="align-middle">Analytics</span>
+                    <span class="align-middle"><strong>Administración</strong></span>
                 </a>
-                <ul id="analytics" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar"
+                <ul id="tablas" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar"
                     style="">
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">E-Commerce <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Crypto <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
+
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{url('/autoridadrs')}}"><strong class="text-white">Autoridad Responsable</strong> <span class="sidebar-badge badge bg-primary"></span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{url('/cargos')}}"><strong class="text-white">Cargos</strong> <span class="sidebar-badge badge bg-primary"></span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{url('/categorias')}}"><strong class="text-white">Categorías</strong> <span class="sidebar-badge badge bg-primary"></span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{url('/condiciones')}}"><strong class="text-white">Condiciones</strong> <span class="sidebar-badge badge bg-primary"></span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{url('/marcas')}}"><strong class="text-white">Marcas</strong> <span class="sidebar-badge badge bg-primary"></span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{url('/modelos')}}"><strong class="text-white">Modelos</strong> <span class="sidebar-badge badge bg-primary"></span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{url('/responsables')}}"><strong class="text-white">Responsable</strong> <span class="sidebar-badge badge bg-primary"></span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{url('/sedes')}}"><strong class="text-white">Sedes</strong><span class="sidebar-badge badge bg-primary"></span></a></li>
+
+
+
+                    @if (auth()->user()->rol_id==1)
+
+
+                    @endif
                 </ul>
             </li>
 
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="#">
+            <li class="sidebar-item active">
+                <a class="sidebar-link" href="{{url('/solicitantes')}}">
+                <i class="fa-solid fa-users"></i>
+                <span class="align-middle"><strong>Solicitantes</strong></span>
+                </a>
+            </li>
+
+            <li class="sidebar-item active">
+                <a class="sidebar-link" href="{{url('/prestamos')}}">
+                <i class="fa-solid fa-truck-ramp-box"></i>
+                    <span class="align-middle"><strong>Préstamos</strong></span>
+                </a>
+            </li>
+
+            @if (auth()->user()->rol_id==1)
+            <li class="sidebar-item active">
+                <a class="sidebar-link"  href="{{url('/tecnicos')}}">
                     <i class="fa fa-user"></i>
-                    <span class="align-middle">Profile</span>
+                    <span class="align-middle"><strong>Técnicos</strong></span>
                 </a>
+            </li>
+            @endif
+            <li class="sidebar-item active">
+            <a data-bs-target="#reportes" data-bs-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
+                 <i class="fa-solid fa-file-pdf"></i>
+                    <span class="align-middle"><strong>Reportes</strong></span>
+                </a>
+                <ul id="reportes" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar"
+                    style="">
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{url('/reportes')}}"><strong class="text-white">Reportes de Préstamo e Inventario</strong> <span class="sidebar-badge badge bg-primary"></span></a></li>
+                </ul>
+
             </li>
 
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="#">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span class="align-middle">Invoice</span>
-                </a>
-            </li>
 
-            <li class="sidebar-header">
-                Components
-            </li>
-            <li class="sidebar-item">
-                <a data-bs-target="#ui" data-bs-toggle="collapse" class="sidebar-link collapsed"
-                    aria-expanded="false">
-                    <i class="fa-solid fa-layer-group"></i>
-                    <span class="align-middle">UI Elements</span>
-                </a>
-                <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Alerts</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Buttons</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Cards</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">General</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Grid</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Modals</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Offcanvas <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Placeholders <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Tabs <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Typography</a></li>
-                </ul>
-            </li>
-
-            <li class="sidebar-header">
-                Plugins &amp; Addons
-            </li>
-            <li class="sidebar-item">
-                <a data-bs-target="#form-plugins" data-bs-toggle="collapse" class="sidebar-link collapsed"
-                    aria-expanded="false">
-                    <i class="fa-solid fa-file-lines"></i>
-                    <span class="align-middle">Form Plugins</span>
-                </a>
-                <ul id="form-plugins" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Advanced
-                            Inputs <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Editors <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Validation <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                </ul>
-            </li>
-            <li class="sidebar-item">
-                <a data-bs-target="#datatables" data-bs-toggle="collapse" class="sidebar-link collapsed"
-                    aria-expanded="false">
-                    <i class="fa-solid fa-table-list"></i>
-                    <span class="align-middle">DataTables</span>
-                </a>
-                <ul id="datatables" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                    <li class="sidebar-item"><a class="sidebar-link"
-                            href="#">Responsive Table <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Table with
-                            Buttons <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link"
-                            href="#">Column Search <span
-                                class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Fixed
-                            Header <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Multi
-                            Selection <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="#">Ajax Sourced
-                            Data <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                </ul>
-            </li>
-            <li class="sidebar-item">
-                <a data-bs-target="#charts" data-bs-toggle="collapse" class="sidebar-link collapsed"
-                    aria-expanded="false">
-                    <i class="fa-solid fa-chart-column"></i>
-                    <span class="align-middle">Charts</span>
-                </a>
                 <ul id="charts" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                     <li class="sidebar-item"><a class="sidebar-link" href="#">Chart.js</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="#">ApexCharts <span

@@ -10,9 +10,9 @@ login-box
 
 @section('content')
     <!-- /.login-logo -->
-        <div class="card card-outline card-primary">
+        <div class="card card-outline card-danger">
             <div class="card-header text-center">
-                <a href="{{ route('login') }}" class="h1"><b>Admin</b>LTE</a>
+                <a href="{{ route('login') }}" class="h1"><img style="width: 150px; margin: auto 30px;" src="{{ asset('img/logo.png') }}"></a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Acceder para iniciar sesión</p>
@@ -21,7 +21,7 @@ login-box
                     @csrf
                     <div class="row input-group mb-3">
                         <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" placeholder="{{ __('Username') }}" required autofocus>
-                            
+
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -36,7 +36,7 @@ login-box
                     </div>
                     <div class="row input-group mb-3">
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="{{ __('Password') }}" required autocomplete="current-password">
-                                                
+
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -63,15 +63,12 @@ login-box
                         <!-- /.col -->
                     </div>
                     <div class="social-auth-links text-center mt-2 mb-3">
-                        <button type="submit" class="btn btn-block btn-primary"><strong>{{ __('Login') }}  <i class="fa-solid fa-right-to-bracket"></i></strong></button>
-                        <p class="mb-0">
-                            <br>
-                            <a href="{{ route('register') }}" class="text-center">Registrar nuevo usuario</a>
-                        </p>
+                        <button type="submit" class="btn btn-block btn-danger"><strong>{{ __('Login') }}  <i class="fa-solid fa-right-to-bracket"></i></strong></button>
+
                     </div>
 
                 </form>
-                
+
             </div>
             <!-- /.card-body -->
         </div>

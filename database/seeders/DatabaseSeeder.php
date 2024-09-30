@@ -15,8 +15,22 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            estadoSeeder::class,
+            municipioSeeder::class,
+            parroquiaSeeder::class,
+            rolSeeder::class,
             UsertypesTableSeeder::class,
             UsersTableSeeder::class,
+            organismosSeeder::class,
+            cargosSeeder::class,
+            categoriasSeeder::class,
+            codigo_uniadminsSeeder::class,
+            condicionesSeeder::class,
+            tiposedesSeeder::class,
+            marcasSeeder::class,
+            modelosSeeder::class,
+            BienesSeeder::class,
+            TecnicosSeeder::class,
     	]);
     }
 }

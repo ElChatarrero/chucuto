@@ -23,10 +23,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('username')->unique();
             $table->string('email')->unique();
+            $table->boolean('estatus');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedBigInteger('usertype_id');
-            $table->foreign('usertype_id')->references('id')->on('usertypes')->onUpdate('cascade');
+            $table->foreignId('rol_id')->references('id')->on('roles');
             $table->rememberToken();
             $table->timestamps();
         });

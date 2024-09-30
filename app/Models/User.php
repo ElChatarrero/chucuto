@@ -13,7 +13,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $fillable = ['name', 'username', 'email', 'password', 'usertype_id', 'uuid'];
+    protected $fillable = ['name', 'username', 'email', 'password', 'usertype_id', 'uuid', 'estatus'];
     protected $hidden = ['password', 'remember_token'];
     protected $casts = ['email_verified_at' => 'datetime'];
 
@@ -24,7 +24,7 @@ class User extends Authenticatable
             $model->uuid = (string) Uuid::generate();
         });
     }
-    
+
     public function getRouteKeyName()
     {
         return 'uuid';
@@ -34,5 +34,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Usertype::class);
     }
-    
+    public function rol()
+    {
+        return $this->belongsTo(roles::class);
+    }
+    public function scopeusuario($query, $usuario){
+        if($usuario)
+        return $query->where('username', 'like', "%$usuario%");
+
+    }
+
 }

@@ -25,13 +25,15 @@ class UsersTableSeeder extends Seeder
         }
         $users = [
 
-            ['id' => 1,  
-             'name' =>  'ADMIN', 
-             'username' =>  'admin', 
-             'email' =>  'admin@admin.com', 
+            ['id' => 1,
+             'name' =>  'ADMIN',
+             'username' =>  'admin',
+             'email' =>  'admin@admin.com',
              'password' =>  '$2y$10$oyaH36bPd9rfbywnPi6PJuC4GRsHaf6voJ9FrLDQhN5tO2DeywgTG', //123456789
-             'usertype_id' =>  1, 
-             'created_at' => '2022-10-04 23:31:08', 
+             //'usertype_id' =>  1,
+             'estatus' => true,
+             'rol_id' =>  1,
+             'created_at' => '2022-10-04 23:31:08',
              'updated_at' => '2022-10-04 23:31:08']
 
 		];

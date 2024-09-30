@@ -10,11 +10,11 @@
     <!-- VITE CSS -->
     @vite(['resources/sass/login.scss'])
 </head>
-<body class="hold-transition @yield('bodystyle')">
+<body class="hold-transition @yield('bodystyle')" style=" background-image: url('{{asset('img/logo_login.png')}}')">
     <div class="@yield('boxstyle')">
         @yield('content')
     </div>
-    <!-- /.login-box -->    
+    <!-- /.login-box -->
     <!-- VITE Scripts -->
     @vite(['resources/js/login.js'])
 </body>
